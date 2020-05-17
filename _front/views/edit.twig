@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <title>Modification</title>
+  </head>
+  <body class="p-5">
+
+    <h1 class="mb-5 text-center">Modification</h1>
+
+    <form action="" method="POST">
+      {% for property,value in member %}
+      <div class="form-group">
+        <label for="{{property}}">{{ property }}</label>
+        <input type="text" class="form-control" id="{{property}}" name="{{property}}" value="{{value}}" {% if property == 'id' %} readonly {% endif %}>
+      </div>
+      {% if property == 'id' %} {% else %} <button type="submit" class="btn btn-primary">Modifier</button> {% endif %}
+      
+      {% endfor %}
+    </form>
+
+
+    <form action="/delete" method="POST" class='mt-5'>
+      <div class="form-group">
+        <label for=""></label>
+        <input type="hidden" class="form-control" name="id" value="{{member.id}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Supprimer</button>
+    </form>
+
+    <a href='/' style="color:white" class="btn btn-primary mt-3" >Accueil</a>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

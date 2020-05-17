@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/members.css">
+        <title>Members</title>
+
+  </head>
+  <body class="p-5">
+    <h1 class="mb-5 text-center">Donnees des membres</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {% for property,value in members[0] %}
+                    <th scope="col"> {{ property }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+                <tr style="cursor:pointer" onclick="document.location='/edit/{{member.id}}'">
+                    {% for value in member %}
+                        <td> {{ value }} </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href='/insert' style="color:white" class="ajout btn btn-primary mt-3" >Ajouter un membre</a>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

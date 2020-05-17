@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <title>Member</title>
+  </head>
+  <body class="p-5">
+    <h1 class="mb-5 text-center">Donnees du membre</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {% for property,value in member %}
+                    <th scope="col"> {{ property }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    {% for value in member %}
+                        <td> {{ value }} </td>
+                    {% endfor %}
+                </tr>
+        </tbody>
+    </table>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

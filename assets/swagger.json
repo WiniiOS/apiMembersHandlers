@@ -1,0 +1,126 @@
+{
+    "info": {
+      "title": "API REST Documentation JScodeur",
+      "version": "1.0.0",
+      "license": {
+        "name": "ISC"
+      },
+      "contact":{
+        "email": "jscodeur@mercucreation.com"
+      },
+    
+      "description": "API REST Pour gérer des utilisateurs"
+    },
+    "basePath":"/api/v1",
+    "host":"localhost:8080",
+    "tags":[
+        {
+            "names":"members",
+            "description":"Methodes permettant de gérer les utilisateurs"
+        }
+    ],
+    "schemes":{
+        "http": "http"
+    },
+    "paths": {
+      "members/{id}": {
+        "get": {
+          "tags":["members"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "params",
+              "required": true
+            }
+          ],
+          "responses": {
+            
+            "200":{
+                "description": "successful operation"
+            },
+            "schema":{
+                "type": "array",
+                "items":{
+                    "$ref": "#/definitions/Pet"
+                }
+            },        
+            "400":{
+                "description": "Invalid status value"
+            }
+          }
+        },
+        "put": {
+          "tags":["members"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "params",
+              "required": true
+            },
+            {
+                "name": "name",
+                "in": "body",
+                "required": true
+              }
+          ],
+          "responses": {}
+        },
+        "delete": {
+          "tags":["members"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "members": {
+        "get": {
+          "tags":["members"],
+          "summary": "members",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "name": "max",
+                "in": "query",
+                "required": false
+            }
+          ],
+          "responses": {}
+        },
+        "post": {
+          "tags":["members"],
+          "summary": "members",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "name": "name",
+                "in": "body",
+                "required": true
+            }
+          ],
+          "responses": {}
+        }
+      }
+    },
+    "swagger": "2.0"
+  }
